@@ -117,17 +117,23 @@ body{
     text-align: center;
     color: white;
     background-color: #292929;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-right: 1%;
 }
 
 .input-number {
     text-align: center;
     color: white;
     background-color: #292929;
-    width: 7%
+    width: 7%;
+    margin-right: 1%;
 }
 
 .input-button {
     border-radius: 20px;
     color: white;
     background-color: #292929;
+    margin-left: 3%;
+    width: 14%;
 }
