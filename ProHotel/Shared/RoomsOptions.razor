@@ -1,0 +1,28 @@
+﻿@using ProHotel.Data
+@inject OptionEntryService OptionEntryService
+
+<div class="RoomsOptions">
+    <ul>
+        @foreach(var entry in entries)
+        {
+            <li class="OptionEntryList"><OptionEntry Option=@entry /></li>
+        }
+        <button class="OptionButton" @onclick="ApplyFilters">Apply filters</button>
+    </ul>
+</div>
+
+@code {
+    private OptionEntry e1 = new();
+
+    private Option[]? entries;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        entries = await OptionEntryService.GetForecastAsync();
+    }
+
+    private void ApplyFilters()
+    {
+        
+    }
+}
