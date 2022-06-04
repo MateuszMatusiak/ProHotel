@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\konra\\Git\\ProHotel\\ProHotel\\ProHotel.csproj": {}
+    "D:\\hakery\\POWP\\ProHotel\\ProHotel\\ProHotel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\konra\\Git\\ProHotel\\ProHotel\\ProHotel.csproj": {
+    "D:\\hakery\\POWP\\ProHotel\\ProHotel\\ProHotel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\konra\\Git\\ProHotel\\ProHotel\\ProHotel.csproj",
+        "projectUniqueName": "D:\\hakery\\POWP\\ProHotel\\ProHotel\\ProHotel.csproj",
         "projectName": "ProHotel",
-        "projectPath": "C:\\Users\\konra\\Git\\ProHotel\\ProHotel\\ProHotel.csproj",
-        "packagesPath": "C:\\Users\\konra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\konra\\Git\\ProHotel\\ProHotel\\obj\\",
+        "projectPath": "D:\\hakery\\POWP\\ProHotel\\ProHotel\\ProHotel.csproj",
+        "packagesPath": "C:\\Users\\Mateusz\\.nuget\\packages\\",
+        "outputPath": "D:\\hakery\\POWP\\ProHotel\\ProHotel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\konra\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Mateusz\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -57,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Mateusz\\.dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

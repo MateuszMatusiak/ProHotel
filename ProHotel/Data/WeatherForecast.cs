@@ -1,3 +1,5 @@
+using System;
+
 namespace ProHotel.Data;
 
 public class WeatherForecast

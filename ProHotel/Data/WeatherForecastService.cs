@@ -1,3 +1,7 @@
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+
 namespace ProHotel.Data;
 
 public class WeatherForecastService

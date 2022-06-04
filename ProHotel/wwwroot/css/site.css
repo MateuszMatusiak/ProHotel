@@ -12,6 +12,21 @@
     color: red;
 }
 
+.page {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #1b1b1b;
+}
+
+.App {
+    text-align: center;
+}
+
+body{
+    background-color: #1b1b1b;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -42,29 +57,19 @@
 }
 
 .content {
-    padding-top: 100px;
     background-color: #1b1b1b;
     min-height: 100%;
     min-width: 100%;
 }
 
-.App {
-    text-align: center;
-}
-
-.logo {
+.logo-bar {
+    background-color: #292929;
     float: left;
     padding-left: 12%;
-    margin: auto auto auto 3%;
+    margin: auto;
     padding-top: 1%;
     position: relative;
-}
-
-.header {
-    background-color: #292929;
-    height: 19%;
-    width: 100%;
-    position: absolute;
+    text-align: left;
 }
 
 .input{
@@ -76,13 +81,12 @@
     border-color: #292929;
 }
 
-.categoriesButtons {
-    margin-top: 2%;
+.flag{
+    scale: 45%;
 }
 
-.categoriesButton {
-    border-radius: 15px;
-    margin: 5px
+.background-image{
+    height: 300%;
 }
 
 .text {
