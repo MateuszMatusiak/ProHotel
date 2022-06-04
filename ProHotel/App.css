@@ -1,0 +1,61 @@
+.App {
+    text-align: center;
+}
+
+.logo {
+    float: left;
+    padding-left: 12%;
+    margin: auto auto auto 3%;
+    padding-top: 1%;
+    position: relative;
+}
+
+.header {
+    background-color: #292929;
+    height: 19%;
+    width: 100%;
+    position: absolute;
+}
+
+.input{
+    margin-top: 2.5%;
+    margin-right: 20%;
+    border-radius: 20px;
+    color: white;
+    background-color: #808080;
+    border-color: #292929;
+}
+
+.categoriesButtons {
+    margin-top: 2%;
+}
+
+.categoriesButton {
+    border-radius: 15px;
+    margin: 5px
+}
+
+.text {
+    color: red;
+    font-family: "Comic Sans MS", serif;
+    font-size: 10vh;
+}
+
+.content {
+    background-color: #1b1b1b;
+    min-height: 100%;
+    min-width: 100%;
+
+}
+
+.main {
+    background-color: #1b1b1b;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.link {
+    color: #61dafb;
+}
