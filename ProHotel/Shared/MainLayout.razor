@@ -5,22 +5,14 @@
 <div class="page">
     <div class="App">
         <div class="row-cols-auto header">
-            <img src={logo} class="col-md-3 logo" alt="logo"/>
-            <input class="input col-md-6 " defaultValue="Szukajka"/>
-            <div class="row-cols-auto categoriesButtons">
-                <Button class="col-md-2 categoriesButton bg-dark border-dark alert-dark btn-dark">Strona główna</Button>
-                <Button class="col-md-2 categoriesButton bg-dark border-dark alert-dark btn-dark">Kategorie</Button>
-                <Button class="col-md-2 categoriesButton bg-dark border-dark alert-dark btn-dark">Kontakt</Button>
+            <div class="logo">
+                <img src="images/logo.png" class="col-md-3 logo" alt="logo"/>
+                <img src="images/flag.png" class="col-md-3 logo" alt="flag"/>
             </div>
+            <img src="images/background.jpg" alt="background"/>
         </div>
-        <div class="main">
-            <div class="content">
-                <p class="text">
-                    Jak to jakiś fajny hotel będzie
-                </p>
-            </div>
-        </div>
+        <article class="content">
+            @Body
+        </article>
     </div>
-
-    
 </div>
