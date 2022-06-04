@@ -57,7 +57,6 @@ body{
 }
 
 .content {
-    background-color: #1b1b1b;
     min-height: 100%;
     min-width: 100%;
 }
@@ -82,7 +81,9 @@ body{
 }
 
 .flag{
-    scale: 45%;
+    transform: scale(0.6);
+    border: #ffd700 4px solid;
+    border-radius: 50%;
 }
 
 .background-image{
@@ -105,4 +106,31 @@ body{
 
 .link {
     color: #61dafb;
+}
+
+.OptionEntry {
+    color: #808080;
+    background-color: #292929;
+    text-align: left;
+    border: 2px #1b1b1b solid;
+    border-radius: 4px;
+    margin-top: 1px;
+    padding: 6px;
+}
+
+.OptionEntryList {
+    list-style-type: none;
+}
+
+.OptionEntryElementList {
+    list-style-type: none;
+}
+
+.OptionButton {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    padding: 0px;
 }
