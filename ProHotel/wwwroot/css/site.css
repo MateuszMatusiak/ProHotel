@@ -106,3 +106,28 @@ body{
 .link {
     color: #61dafb;
 }
+
+.search-field {
+    border: #ffa31a solid;
+    border-radius: 10px;
+    background-color: #ffa31a;
+}
+
+.input-date {
+    text-align: center;
+    color: white;
+    background-color: #292929;
+}
+
+.input-number {
+    text-align: center;
+    color: white;
+    background-color: #292929;
+    width: 7%
+}
+
+.input-button {
+    border-radius: 20px;
+    color: white;
+    background-color: #292929;
+}

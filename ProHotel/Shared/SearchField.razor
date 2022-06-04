@@ -1,0 +1,14 @@
+﻿<div class="col-md-6 offset-3 search-field">
+    <input type="date" value=@startDate class="input-date">
+    <input type="date" value=@endDate class="input-date">
+    <input id="PeopleNumber" type="number" value="2" class="input-number">
+    <input id="childrenNumber" type="number" value="0" class="input-number">
+    <button class="input-button">SZUKAJ</button>
+</div>
+
+@code {
+    string? startDate = DateTime.Today.ToString("u").Split(' ')[0];
+    string? endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month+1, DateTime.Today.Day).ToString("u").Split(' ')[0];
+    
+    
+}
