@@ -3,17 +3,24 @@
 <PageTitle>ProHotel</PageTitle>
 
 <div class="page">
-    <div class="header">
-            
-    </div>
-    
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+    <div class="App">
+        <div class="row-cols-auto header">
+            <img src={logo} class="col-md-3 logo" alt="logo"/>
+            <input class="input col-md-6 " defaultValue="Szukajka"/>
+            <div class="row-cols-auto categoriesButtons">
+                <Button class="col-md-2 categoriesButton bg-dark border-dark alert-dark btn-dark">Strona główna</Button>
+                <Button class="col-md-2 categoriesButton bg-dark border-dark alert-dark btn-dark">Kategorie</Button>
+                <Button class="col-md-2 categoriesButton bg-dark border-dark alert-dark btn-dark">Kontakt</Button>
+            </div>
         </div>
+        <div class="main">
+            <div class="content">
+                <p class="text">
+                    Jak to jakiś fajny hotel będzie
+                </p>
+            </div>
+        </div>
+    </div>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+    
 </div>
