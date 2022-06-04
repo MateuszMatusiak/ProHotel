@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Include="wwwroot\css\App.css" />
+      <None Include="wwwroot\css\site.css" />
     </ItemGroup>
 
 </Project>
