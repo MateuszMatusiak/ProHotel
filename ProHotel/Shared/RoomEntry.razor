@@ -1,58 +1,44 @@
-﻿<div class="container main_table">
-	<div class="row">
-	<div class="col-md room_image">
-		<img src="@imageUrl" class="img-fluid" alt="Room image not found">
-	</div>
-	<div class="col-md">
-		<div class="col-md">
-		<div class="col">@name</div>
-		<div class="small_info">
-			<div class="row">
-				<div class="col">Pow. @space</div>
-				<div class="col">Liczba osób: @seats</div>
-			</div>
-			<div class="col">@beds łóżka</div>
-			<div class="col">Śniadanie w cenie: @breakfast</div>
-		</div>
-		</div>
-	</div>
-	<div class="col-md">
-		<div class="col-md">
-		<div class="col">Wariant @variant</div>
-		<div class="col">@pricePerDay zł/doba</div>
-		</div>
-	</div>
-	</div>
+﻿@using ProHotel.Data
+@inject RoomEntryService RoomEntryService
+
+<div class="container main_table col-md-3">
+    <div class="row">
+        <div class="col-md room_image">
+            <img src="@room.ImageUrl" class="img-fluid" alt="Room image not found">
+        </div>
+        <div class="col-md">
+            <div class="col-md">
+                <div class="col">@room.Name</div>
+                <div class="small_info">
+                    <div class="row">
+                        <div class="col">Pow. @room.Space</div>
+                        <div class="col">Liczba osób: @room.Seats</div>
+                    </div>
+                    <div class="col">@room.Beds łóżka</div>
+                    <div class="col">Śniadanie w cenie: @room.Breakfast</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="col-md">
+                <div class="col">Wariant @room.Variant</div>
+                <div class="col">@room.PricePerDay zł/doba</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @code {
-	string imageUrl = "images/pic.jpg";
-	string name="Dupa";
-	float space = 69.0f;
-	int seats = 4;
-	int beds = 2;
-	bool breakfast = false;
-	string variant = "Twoja stara";
-	float pricePerDay = 420.0f;
+    // string imageUrl = "images/pic.jpg";
+    // string name = "Dupa";
+    // float space = 69.0f;
+    // int seats = 4;
+    // int beds = 2;
+    // bool breakfast = false;
+    // string variant = "Twoja stara";
+    // float pricePerDay = 420.0f;
 
-	public void CreateEntry(
-		string imageUrl_,
-		string name_,
-		float space_,
-		int seats_,
-		int beds_,
-		bool breakfast_,
-		string variant_,
-		float pricePerDay_
-	)
-	{
-		imageUrl = imageUrl_;
-		name = name_;
-		space = space_;
-		seats = seats_;
-		beds = beds_;
-		breakfast = breakfast_;
-		variant = variant_;
-		pricePerDay = pricePerDay_;
-	}
+    [Parameter]
+    public Room room { get; set; }
+
 }

@@ -162,7 +162,19 @@ ul {
 .input-button {
     border-radius: 20px;
     color: white;
-    background-color: #292929;
+    background-color: #808080;
     margin-left: 3%;
     width: 14%;
+}
+
+.search-result {
+    text-align: center;
+    border-radius: 2em;
+    width: 70%;
+    background-color: #292929;
+}
+
+.search-result {
+    background-color: #ffa31a;
+    border-color: red;
 }

@@ -1,0 +1,32 @@
+﻿@using ProHotel.Data
+@inject RoomEntryService RoomEntryService;
+
+<div class="search-result">
+    <ul>
+        <h1>CHUJ</h1>
+        @foreach (var entry in _rooms)
+        {
+            <li class="search-result-element">
+                <RoomEntry Room=@entry />
+            </li>
+        }
+    </ul>
+</div>
+
+@code {
+    private Room[] _rooms = Array.Empty<Room>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Room[]? temp = await RoomEntryService.GetRooms();
+        if (temp == null)
+        {
+            _rooms = new Room[] {new Room()};
+        }
+        else
+        {
+            _rooms = temp;
+        }
+    }
+
+}
