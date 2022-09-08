@@ -19,22 +19,22 @@ public class RoomJson
 
 public class Addons
 {
-	public bool? balcony { get; set; }
-	public bool? bath { get; set; }
-	public bool? coffee { get; set; }
-	public bool? desk { get; set; }
-	public bool? disabled_accessible { get; set; }
-	public bool? fridge { get; set; }
-	public bool? kids_beds { get; set; }
-	public bool? kitchen { get; set; }
-	public bool? laundry { get; set; }
-	public bool? safe { get; set; }
-	public bool? sightseeing { get; set; }
-	public bool? sofa { get; set; }
-	public bool? tea { get; set; }
-	public bool? toilet { get; set; }
-	public bool? tv { get; set; }
-	public bool? washing_mashine { get; set; }
+	public bool? balcony { get; set; } = false;
+	public bool? bath { get; set; } = false;
+	public bool? coffee { get; set; } = false;
+	public bool? desk { get; set; } = false;
+	public bool? disabled_accessible { get; set; } = false;
+	public bool? fridge { get; set; } = false;
+	public bool? kids_beds { get; set; } = false;
+	public bool? kitchen { get; set; } = false;
+	public bool? laundry { get; set; } = false;
+	public bool? safe { get; set; } = false;
+	public bool? sightseeing { get; set; } = false;
+	public bool? sofa { get; set; } = false;
+	public bool? tea { get; set; } = false;
+	public bool? toilet { get; set; } = false;
+	public bool? tv { get; set; } = false;
+	public bool? washing_mashine { get; set; } = false;
 }
 
 public class Image

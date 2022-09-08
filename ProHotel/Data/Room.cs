@@ -1,7 +1,4 @@
-﻿using System.Net;
-using System.Text.Json;
-
-namespace ProHotel.Data;
+﻿namespace ProHotel.Data;
 
 public class Room
 {
@@ -12,6 +9,7 @@ public class Room
 	public int Beds {get; set;}
 	public string Variant {get; set;}
 	public float PricePerDay {get; set;}
+    public Addons Addons { get; set; }
 
     public Room(RoomJson roomJson)
     {
@@ -22,5 +20,6 @@ public class Room
         Beds = roomJson.bed_count_2p ?? 0;
         Variant = roomJson.variant ?? "";
         PricePerDay = roomJson.price ?? 0;
+        Addons = roomJson.addons ?? new Addons();
     }
 }
