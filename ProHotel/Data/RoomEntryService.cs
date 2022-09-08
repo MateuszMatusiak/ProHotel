@@ -23,4 +23,11 @@ public class RoomEntryService
         }
         return Task.FromResult(res);
     }
+    
+    public Task<Room> GetRoom(int id)
+    {
+        string json = new HttpClient().GetStringAsync($"{Url}({id})").Result;
+        var roomsJson = JsonSerializer.Deserialize<RoomJson>(json) ?? new RoomJson();
+        return Task.FromResult(new Room(roomsJson));
+    }
 }
