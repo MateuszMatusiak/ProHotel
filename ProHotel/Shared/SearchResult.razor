@@ -14,19 +14,13 @@
 </div>
 
 @code {
-    private Room[] _rooms = Array.Empty<Room>();
+    private Room[]? _rooms;
 
+    [Parameter]
+    public bool Random { get; set; }
+    
     protected override async Task OnInitializedAsync()
     {
-        Room[]? temp = await RoomEntryService.GetRooms();
-        if (temp == null)
-        {
-            _rooms = new Room[] {new Room()};
-        }
-        else
-        {
-            _rooms = temp;
-        }
+        _rooms = await RoomEntryService.GetRooms(Random);
     }
-
 }
