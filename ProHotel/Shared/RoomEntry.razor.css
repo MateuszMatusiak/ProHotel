@@ -1,20 +1,20 @@
-﻿
-.room_image {
-	display: block;
-	text-align: center;
-	max-width:150px;
-	max-height:150px;
+﻿.room_image {
+    display: block;
+    text-align: center;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .small_info {
-	/*font-size: 15px;*/
+    /*font-size: 15px;*/
 }
 
 .main_table {
-	border-style: dotted;
-	background-color: white;
+    border-style: solid;
+    border-color: #ffa31a;
+    background-color: white;
 }
 
 .image {
-	text-align: center;
+    text-align: center;
 }
