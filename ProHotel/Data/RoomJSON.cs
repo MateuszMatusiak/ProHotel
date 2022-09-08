@@ -36,20 +36,20 @@ public class Addons
 	public bool? tv { get; set; } = false;
 	public bool? washing_mashine { get; set; } = false;
 
-    public List<(string name, bool value)> GetAddons()
-    {
-        var props = GetType().GetProperties();
-        var addons = new List<(string name, bool value)>();
-        foreach (var prop in props)
-        {
-            bool value = (bool)prop.GetValue(this)!;
-            if (value == false)
-                continue;
-            string name = prop.Name;
-            addons.Add((name, value));
-        }
-        return addons;
-    }
+	public List<string> GetAddons()
+	{
+		var props = GetType().GetProperties();
+		var addons = new List<string>();
+		foreach(var prop in props)
+		{
+			bool value = (bool)prop.GetValue(this)!;
+			if(value == false)
+				continue;
+			string name = prop.Name;
+			addons.Add(name);
+		}
+		return addons;
+	}
 }
 
 public class Image
