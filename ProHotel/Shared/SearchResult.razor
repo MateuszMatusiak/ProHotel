@@ -2,15 +2,15 @@
 @inject RoomEntryService RoomEntryService;
 
 <div class="search-result">
-    <ul>
-        <h1>CHUJ</h1>
-        @foreach (var entry in _rooms)
-        {
-            <li class="search-result-element">
-                <RoomEntry Room=@entry />
-            </li>
-        }
-    </ul>
+	<h1>CHUJ</h1>
+	<ul class="search-result-list">
+		@foreach (var entry in _rooms)
+		{
+			<li class="search-result-element">
+				<RoomEntry Room=@entry />
+			</li>
+		}
+	</ul>
 </div>
 
 @code {
