@@ -1,0 +1,36 @@
+﻿@page "/roomm/{id:int}"
+@using ProHotel.Data
+@inject RoomEntryService RoomEntryService;
+
+<PageTitle>Room</PageTitle>
+
+<div>
+    <div>
+        <label>@_room.Name</label>
+    </div>
+    <div class="room_image">
+        <img src="data:image/png;base64,@_room.ImageUrl" class="img-fluid" alt="Room image not found">
+    </div>
+    <div>
+        <ul class="search-result-list">
+        	@foreach (var addon in _room.Addons.GetAddons())
+        	{
+		        <li class="search-result-element">
+                    @addon 
+                </li>
+        	}
+        </ul>
+    </div>
+</div>
+
+@code {
+    
+    [Parameter] public int Id { get; set; }
+    
+    private Room? _room;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _room = await RoomEntryService.GetRoom(Id);
+    }
+}

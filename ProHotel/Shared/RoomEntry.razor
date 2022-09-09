@@ -2,33 +2,63 @@
 @inject RoomEntryService RoomEntryService
 
 <div class="container main_table">
-    <div class="row">
-        <div class="col-md room_image">
-            <img src="data:image/png;base64,@room.ImageUrl" class="img-fluid" alt="Room image not found">
-        </div>
-        <div class="col-md">
-            <div class="col-md">
-                <div class="col">@room.Name</div>
-                <div class="small_info">
-                    <div class="row">
-                        <div class="col">Pow. @room.Space</div>
-                        <div class="col">Liczba osób: @room.Seats</div>
-                    </div>
-                    <div class="col">@room.Beds łóżka</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="col-md">
-                <div class="col">Wariant @room.Variant</div>
-                <div class="col">@room.PricePerDay zł/doba</div>
-            </div>
-        </div>
-    </div>
+	<div class="row align-items-center">
+		<div class="col-md-5 room_image">
+			<img src="data:image/png;base64,@room.ImageUrl" class="img-fluid" alt="Room image not found">
+		</div>
+		<div class="col-md-6">
+			<div class="row room-title">Pokój numer @room.RoomNumber</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="row small_info">
+						<div class="row">
+							@if(@room.Addons.Count > 0)
+							{
+								<div class="col-md-6 small-info-element">
+									<div class="addons-list">
+										@foreach (var entry in @room.Addons)
+										{
+											<li >
+												•@entry
+											</li>
+										}
+									</div>
+								</div>
+							}
+							<div class="col-md-6 small-info-element">
+								<div class="col">•@room.Space㎡</div>
+								@* <div class="col">Śniadanie w cenie: @room.Breakfast</div> *@
+							</div>
+						</div>
+						<div class="row">•@room.Beds łóżka (@room.Beds1Person pojedyncze, @room.Beds2Person podwójne)</div>
+						@if(@room.BedsChildren>0)
+						{							
+							<div class="row">•@room.BedsChildren łóżka dla dzieci</div>					
+						}
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="col room-variant">
+						<div class="row">Wariant @room.Variant</div>
+						<div class="row">@room.PricePerDay zł/doba</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 @code {
-    [Parameter]
-    public Room room { get; set; }
+	// string imageUrl = "images/pic.jpg";
+	// string name = "Dupa";
+	// float space = 69.0f;
+	// int seats = 4;
+	// int beds = 2;
+	// bool breakfast = false;
+	// string variant = "Twoja stara";
+	// float pricePerDay = 420.0f;
+	int counter = 0;
+	[Parameter]
+	public Room room { get; set; }
 
 }
