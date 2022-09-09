@@ -2,7 +2,7 @@
 @inject RoomEntryService RoomEntryService;
 
 <div class="search-result">
-	<h1>CHUJ</h1>
+	<h1>Znaleziono @roomsCount @text</h1>
 	<ul class="search-result-list">
 		@foreach (var entry in _rooms)
 		{
@@ -14,13 +14,18 @@
 </div>
 
 @code {
-    private Room[]? _rooms;
+	private Room[]? _rooms;
 
-    [Parameter]
-    public bool Random { get; set; }
-    
-    protected override async Task OnInitializedAsync()
-    {
-        _rooms = await RoomEntryService.GetRooms(Random);
-    }
+	public int roomsCount = 0;
+	public string text="";
+
+	[Parameter]
+	public bool Random { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		_rooms = await RoomEntryService.GetRooms(Random);
+		roomsCount = _rooms.Length;
+		text = roomsCount > 4 ? "pokoi" : roomsCount > 1 ? "pokoje" : roomsCount < 1 ? "pokoi" : "pokój";
+	}
 }
