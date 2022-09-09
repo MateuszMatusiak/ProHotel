@@ -15,7 +15,6 @@
                         <div class="col">Liczba osób: @room.Seats</div>
                     </div>
                     <div class="col">@room.Beds łóżka</div>
-                    @* <div class="col">Śniadanie w cenie: @room.Breakfast</div> *@
                 </div>
             </div>
         </div>
@@ -29,15 +28,6 @@
 </div>
 
 @code {
-    // string imageUrl = "images/pic.jpg";
-    // string name = "Dupa";
-    // float space = 69.0f;
-    // int seats = 4;
-    // int beds = 2;
-    // bool breakfast = false;
-    // string variant = "Twoja stara";
-    // float pricePerDay = 420.0f;
-
     [Parameter]
     public Room room { get; set; }
 
