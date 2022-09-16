@@ -5,21 +5,40 @@
 <PageTitle>Room</PageTitle>
 
 <div>
-	<div>
-		<label>@_room.RoomNumber</label>
+	<div class="row">
+		<div class="room-options-background col-md-3">
+			<div class="img-room">
+				<img src="data:image/png;base64,@_room.ImageUrl" class="img-fluid" alt="Room image not found">
+			</div>
+		</div>
+		<div class="room-options-background col-md-3">
+			<div class="room-options">
+				<h2 style="text-align: center">Cena za dzień: @_room.PricePerDay pln</h2>
+				<li>Powierzchnia: @_room.Space m2</li>
+				<li>Wariant: @_room.Variant</li><br/>
+				<li>Ilość łóżek dla dorosłych: @_room.Beds</li>
+				<li class="OptionEntryList">w tym:</li>
+				<text>&emsp;Łóżka jednoosobowe: @_room.Beds1Person</text>
+				<p>&emsp;Łóżka dwuosobowe: @_room.Beds2Person</p>
+				<li>Łóżka dziecięce: @_room.BedsChildren</li>
+			</div>
+		</div>
+		<div class="room-options-background col-md-3">
+			<div class="room-options">
+				<h2 style="text-align: center">Wyposażenie pokoju: </h2>
+				<ul class="search-result-list">
+					@foreach (var addon in _room.Addons)
+					{
+						<li>
+							@addon
+						</li>
+					}
+				</ul>
+			</div>
+		</div>
 	</div>
-	<div class="room_image">
-		<img src="data:image/png;base64,@_room.ImageUrl" class="img-fluid" alt="Room image not found">
-	</div>
-	<div>
-		<ul class="search-result-list">
-			@foreach (var addon in _room.Addons)
-			{
-				<li class="search-result-element">
-					@addon
-				</li>
-			}
-		</ul>
+	<div class="row">
+
 	</div>
 </div>
 

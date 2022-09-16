@@ -123,10 +123,6 @@ body {
     list-style-type: none;
 }
 
-.OptionEntryElementList {
-    list-style-type: none;
-}
-
 .OptionButton {
     width: 100%;
     height: auto;
@@ -200,4 +196,23 @@ ul {
 
 .search-result-element {
     list-style: none;
+}
+
+.img-room {
+    text-align: center;
+    margin: 1%;
+}
+
+.room-options-background{
+    background-color: #ffa31a;
+    border-radius: 2%;
+    margin: 3%;
+}
+
+.room-options {
+    color: #1b1b1b;
+    text-align: left;
+    font-size: 18px;
+    margin: 7%;
+    margin-left: 14%;
 }
