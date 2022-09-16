@@ -2,7 +2,10 @@
 @inject RoomEntryService RoomEntryService;
 
 <div class="search-result">
-	<h1>Znaleziono @roomsCount @text</h1>
+	@if (!Random)
+	{
+		<h1>Znaleziono @roomsCount @text</h1>
+	}
 	<ul class="search-result-list">
 		@foreach (var entry in _rooms)
 		{
