@@ -135,9 +135,12 @@
 		{
 			var endpoint = new Uri("http://localhost:8080/v1/free");
 			var newPost = new SearchRoomJSON(areaFrom, areaTo, balcony, bath, bed_count_1p, bed_count_1p, bed_count_2p, bed_count_2p, childrenNumber, peopleNumber, peopleNumber, peopleNumber, coffee, startDate.ToString().Split(' ')[0], endDate.ToString().Split(' ')[0], desk, disabled_accessible, fridge, iron, kids_beds, kitchen, laundry, priceFrom, priceTo, safe, sightseeing, sofa, tea, toilet, tv, variant, washing_mashine);
+			//przekazujemy SearchRoomJSON do RoomEntryService/SearchResult, wyszukujemy pokoje zgodnie z tym (kod poniżej), wyświetlamy SearchResult
+			
 			var newPostJson = JsonSerializer.Serialize(newPost);
 			var payLoad = new StringContent(newPostJson, Encoding.UTF8, "application/json");
 			var result = client.PostAsync(endpoint, payLoad).Result.Content.ReadAsStringAsync().Result;
+			//ej weź teraz wyświetl searchresult z result który jest string json
 			Console.WriteLine(result);
 		}
 	}
