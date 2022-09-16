@@ -1,7 +1,8 @@
 ﻿@using ProHotel.Data
 @inject RoomEntryService RoomEntryService
+@inject NavigationManager NavigationManager
 
-<div class="container main_table">
+<div class="container main_table" onclick="@LoadRoom">
 	<div class="row align-items-center">
 		<div class="col-md-5 room_image">
 			<img src="data:image/png;base64,@room.ImageUrl" class="img-fluid" alt="Room image not found">
@@ -61,4 +62,13 @@
 	[Parameter]
 	public Room room { get; set; }
 
+    void LoadRoom()
+    {
+        NavigationOptions options = new()
+        {
+            ForceLoad = true
+        };
+        
+        NavigationManager.NavigateTo($"/room/{room.RoomNumber}", options);
+    }
 }
