@@ -22,8 +22,8 @@
 	[Parameter]
 	public bool Random { get; set; }
 
-	[Parameter]
-	public SearchField SearchField { get; set; }
+    [Parameter]
+    public SearchRoomJSON SearchField { get; set; }
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -31,4 +31,16 @@
 		roomsCount = _rooms.Length;
 		text = roomsCount > 4 ? "pokoi" : roomsCount > 1 ? "pokoje" : roomsCount < 1 ? "pokoi" : "pokój";
 	}
+
+    protected override async void OnParametersSet()
+    {
+        await base.OnParametersSetAsync();
+        
+        if (SearchField == null)
+            return;
+        
+        _rooms = await RoomEntryService.GetRooms(SearchField);
+        roomsCount = _rooms.Length;
+        text = roomsCount > 4 ? "pokoi" : roomsCount > 1 ? "pokoje" : roomsCount < 1 ? "pokoi" : "pokój";
+    }
 }

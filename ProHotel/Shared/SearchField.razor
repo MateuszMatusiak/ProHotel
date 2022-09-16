@@ -98,52 +98,113 @@
 </div>
 
 @code {
-	private int? priceFrom = null;
-	private int? priceTo = null;
-	private int? peopleNumber = null;
-	private int? childrenNumber = null;
-	private int? areaFrom = null;
-	private int? areaTo = null;
-	private int? bed_count_1p = null;
-	private int? bed_count_2p = null;
-	private bool? balcony = null;
-	private bool? bath = null;
-	private bool? coffee = null;
-	private bool? desk = null;
-	private bool? disabled_accessible = null;
-	private bool? fridge = null;
-	private bool? iron = null;
-	private bool? kids_beds = null;
-	private bool? kitchen = null;
-	private bool? laundry = null;
-	private bool? safe = null;
-	private bool? sightseeing = null;
-	private bool? sofa = null;
-	private bool? tea = null;
-	private bool? toilet = null;
-	private bool? tv = null;
-	private bool? washing_mashine = null;
-	private string? variant = null;
+    private int? priceFrom;
+    private int? priceTo;
+	private int? peopleNumber;
+	private int? childrenNumber;
+	private int? areaFrom;
+	private int? areaTo;
+	private int? bed_count_1p;
+	private int? bed_count_2p;
+	private bool? balcony {
+	    get => _balcony;
+	    set => _balcony = value == false ? null : value;
+	}
+	private bool? bath {
+	    get => _bath;
+        set => _bath = value == false ? null : value;
+	}
+	private bool? coffee {
+	    get => _coffee;
+        set => _coffee = value == false ? null : value;
+	}
+	private bool? desk {
+	    get => _desk;
+        set => _desk = value == false ? null : value;
+	}
+	private bool? disabled_accessible {
+	    get => _disabled_accessible;
+        set => _disabled_accessible = value == false ? null : value;
+	}
+	private bool? fridge {
+	    get => _fridge;
+        set => _fridge = value == false ? null : value;
+	}
+	private bool? iron {
+	    get => _iron;
+        set => _iron = value == false ? null : value;
+	}
+	private bool? kids_beds {
+	    get => _kids_beds;
+        set => _kids_beds = value == false ? null : value;
+	}
+	private bool? kitchen {
+	    get => _kitchen;
+        set => _kitchen = value == false ? null : value;
+	}
+	private bool? laundry {
+	    get => _laundry;
+        set => _laundry = value == false ? null : value;
+	}
+	private bool? safe {
+	    get => _safe;
+        set => _safe = value == false ? null : value;
+	}
+	private bool? sightseeing {
+	    get => _sightseeing;
+        set => _sightseeing = value == false ? null : value;
+	}
+	private bool? sofa {
+	    get => _sofa;
+        set => _sofa = value == false ? null : value;
+	}
+	private bool? tea {
+	    get => _tea;
+        set => _tea = value == false ? null : value;
+	}
+	private bool? toilet {
+	    get => _toilet;
+        set => _toilet = value == false ? null : value;
+	}
+	private bool? tv {
+	    get => _tv;
+        set => _tv = value == false ? null : value;
+	}
+	private bool? washing_mashine {
+	    get => _washing_mashine;
+        set => _washing_mashine = value == false ? null : value;
+	}
+    private string? variant;
+    
+    private bool? _balcony;
+    private bool? _bath;
+    private bool? _coffee;
+    private bool? _desk;
+    private bool? _disabled_accessible;
+    private bool? _fridge;
+    private bool? _iron;
+    private bool? _kids_beds;
+    private bool? _kitchen;
+    private bool? _laundry;
+    private bool? _safe;
+    private bool? _sightseeing;
+    private bool? _sofa;
+    private bool? _tea;
+    private bool? _toilet;
+    private bool? _tv;
+    private bool? _washing_mashine;
+    
 	// private string? startDate = DateTime.Today.ToString("u").Split(' ')[0];
 	// private string? endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month + 1, DateTime.Today.Day).ToString("u").Split(' ')[0];
 	private DateTime? startDate = DateTime.Today;
 	private DateTime? endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month + 1, DateTime.Today.Day);
 
+	[Parameter]
+	public EventCallback<SearchRoomJSON> OnSearchClicked { get; set; }
+    
 	private void onSearch()
 	{
-		using (var client = new HttpClient())
-		{
-			var endpoint = new Uri("http://localhost:8080/v1/free");
-			var newPost = new SearchRoomJSON(areaFrom, areaTo, balcony, bath, bed_count_1p, bed_count_1p, bed_count_2p, bed_count_2p, childrenNumber, peopleNumber, peopleNumber, peopleNumber, coffee, startDate.ToString().Split(' ')[0], endDate.ToString().Split(' ')[0], desk, disabled_accessible, fridge, iron, kids_beds, kitchen, laundry, priceFrom, priceTo, safe, sightseeing, sofa, tea, toilet, tv, variant, washing_mashine);
-			//przekazujemy SearchRoomJSON do RoomEntryService/SearchResult, wyszukujemy pokoje zgodnie z tym (kod poniżej), wyświetlamy SearchResult
-			
-			var newPostJson = JsonSerializer.Serialize(newPost);
-			var payLoad = new StringContent(newPostJson, Encoding.UTF8, "application/json");
-			var result = client.PostAsync(endpoint, payLoad).Result.Content.ReadAsStringAsync().Result;
-			//ej weź teraz wyświetl searchresult z result który jest string json
-			Console.WriteLine(result);
-		}
+	    var newPost = new SearchRoomJSON(areaFrom, areaTo, balcony, bath, bed_count_1p, bed_count_1p, bed_count_2p, bed_count_2p, childrenNumber, peopleNumber, peopleNumber, peopleNumber, coffee, startDate.ToString().Split(' ')[0], endDate.ToString().Split(' ')[0], desk, disabled_accessible, fridge, iron, kids_beds, kitchen, laundry, priceFrom, priceTo, safe, sightseeing, sofa, tea, toilet, tv, variant, washing_mashine);
+	    OnSearchClicked.InvokeAsync(newPost);
 	}
-
-
 }

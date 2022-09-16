@@ -2,6 +2,16 @@
 
 <PageTitle>ProHotel</PageTitle>
 
-<SearchField/>
-<SearchResult Random="false"/>
+<SearchField OnSearchClicked="data => GetSearchResult(data)"/>
+<SearchResult Random="false" SearchField="searchRoomJSON"/>
+
+@code
+{
+    private SearchRoomJSON searchRoomJSON { get; set; }
+
+    private void GetSearchResult(SearchRoomJSON roomJson)
+    {
+        searchRoomJSON = roomJson;
+    }
+}
 
