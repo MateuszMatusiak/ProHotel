@@ -17,10 +17,13 @@
 	private Room[]? _rooms;
 
 	public int roomsCount = 0;
-	public string text="";
+	public string text = "";
 
 	[Parameter]
 	public bool Random { get; set; }
+
+	[Parameter]
+	public SearchField SearchField { get; set; }
 
 	protected override async Task OnInitializedAsync()
 	{

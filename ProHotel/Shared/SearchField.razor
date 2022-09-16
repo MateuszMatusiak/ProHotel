@@ -2,144 +2,145 @@
 @using System.Text.Json
 @using System.Text
 <div class="col-md-1 search-field h-100" style="margin: 2%; width: 11%">
-    <label>Cena od:</label>
-    <br/>
-    <input @bind="priceFrom" class="input-data">
-    <label>Cena do:</label>
-    <br/>
-    <input @bind="priceTo" class="input-data">
+	<label>Cena od:</label>
+	<br/>
+	<input @bind="priceFrom" class="input-data">
+	<label>Cena do:</label>
+	<br/>
+	<input @bind="priceTo" class="input-data">
 
-    <label>Data od:</label>
-    <br/>
-    <input @bind="startDate" type="date" class="input-date">
-    <br/>
-    <label>Data do:</label>
-    <br/>
-    <input @bind="endDate" type="date" class="input-date">
-    <br/>
-    <label>Ilość dorosłych:</label>
-    <br/>
-    <input @bind="peopleNumber" id="PeopleNumber" type="number" class="input-number">
-    <br/>
-    <label>Ilość dzieci:</label>
-    <br/>
-    <input @bind="childrenNumber" id="childrenNumber" type="number" class="input-number">
-    <br/>
-    <label>Łóżka jednoosobowe:</label>
-    <br/>
-    <input @bind="bed_count_1p" id="bed_count_1p" type="number" class="input-number">
-    <br/>
-    <label>Łóżka dwuosobowe:</label>
-    <br/>
-    <input @bind="bed_count_2p" id="bed_count_2p" type="number" class="input-number">
-    <br/>
-    <label>Wielkość od:</label>
-    <br/>
-    <input @bind="areaFrom" id="areaFrom" type="number" class="input-number">
-    <br/>
-    <label>Wielkość do:</label>
-    <br/>
-    <input @bind="areaTo" id="areaTo" type="number" class="input-number">
-    <br/>
-    <label>Balkon:</label>
-    <input @bind="balcony" type="checkbox">
-    <br/>
-    <label>Łazienka:</label>
-    <input @bind="bath" type="checkbox">
-    <br/>
-    <label>Herbata:</label>
-    <input @bind="tea" type="checkbox">
-    <br/>
-    <label>Kawa:</label>
-    <input @bind="coffee" type="checkbox">
-    <br/>
-    <label>Gabinet:</label>
-    <input @bind="desk" type="checkbox">
-    <br/>
-    <label>Niepełnosprawni:</label>
-    <input @bind="disabled_accessible" type="checkbox">
-    <br/>
-    <label>Lodówka:</label>
-    <input @bind="fridge" type="checkbox">
-    <br/>
-    <label>Żelazko:</label>
-    <input @bind="iron" type="checkbox">
-    <br/>
-    <label>Dzieci:</label>
-    <input @bind="kids_beds" type="checkbox">
-    <br/>
-    <label>Kuchnia:</label>
-    <input @bind="kitchen" type="checkbox">
-    <br/>
-    <label>Pranie:</label>
-    <input @bind="laundry" type="checkbox">
-    <br/>
-    <label>Sejf:</label>
-    <input @bind="safe" type="checkbox">
-    <br/>
-    <label>Zwiedzanie:</label>
-    <input @bind="sightseeing" type="checkbox">
-    <br/>
-    <label>Kanapa:</label>
-    <input @bind="sofa" type="checkbox">
-    <br/>
-    <label>Toaleta:</label>
-    <input @bind="toilet" type="checkbox">
-    <br/>
-    <label>Telewizor:</label>
-    <input @bind="tv" type="checkbox">
-    <br/>
-    <label>Pralka:</label>
-    <input @bind="washing_mashine" type="checkbox">
-    <br/>
-    <br/>
-    <button class="input-button" onclick="@onSearch">SZUKAJ</button>
-    <br/>
+	<label>Data od:</label>
+	<br/>
+	<input @bind="startDate" type="date" class="input-date">
+	<br/>
+	<label>Data do:</label>
+	<br/>
+	<input @bind="endDate" type="date" class="input-date">
+	<br/>
+	<label>Ilość dorosłych:</label>
+	<br/>
+	<input @bind="peopleNumber" id="PeopleNumber" type="number" class="input-number">
+	<br/>
+	<label>Ilość dzieci:</label>
+	<br/>
+	<input @bind="childrenNumber" id="childrenNumber" type="number" class="input-number">
+	<br/>
+	<label>Łóżka jednoosobowe:</label>
+	<br/>
+	<input @bind="bed_count_1p" id="bed_count_1p" type="number" class="input-number">
+	<br/>
+	<label>Łóżka dwuosobowe:</label>
+	<br/>
+	<input @bind="bed_count_2p" id="bed_count_2p" type="number" class="input-number">
+	<br/>
+	<label>Wielkość od:</label>
+	<br/>
+	<input @bind="areaFrom" id="areaFrom" type="number" class="input-number">
+	<br/>
+	<label>Wielkość do:</label>
+	<br/>
+	<input @bind="areaTo" id="areaTo" type="number" class="input-number">
+	<br/>
+	<label>Balkon:</label>
+	<input @bind="balcony" type="checkbox">
+	<br/>
+	<label>Łazienka:</label>
+	<input @bind="bath" type="checkbox">
+	<br/>
+	<label>Herbata:</label>
+	<input @bind="tea" type="checkbox">
+	<br/>
+	<label>Kawa:</label>
+	<input @bind="coffee" type="checkbox">
+	<br/>
+	<label>Gabinet:</label>
+	<input @bind="desk" type="checkbox">
+	<br/>
+	<label>Niepełnosprawni:</label>
+	<input @bind="disabled_accessible" type="checkbox">
+	<br/>
+	<label>Lodówka:</label>
+	<input @bind="fridge" type="checkbox">
+	<br/>
+	<label>Żelazko:</label>
+	<input @bind="iron" type="checkbox">
+	<br/>
+	<label>Dzieci:</label>
+	<input @bind="kids_beds" type="checkbox">
+	<br/>
+	<label>Kuchnia:</label>
+	<input @bind="kitchen" type="checkbox">
+	<br/>
+	<label>Pranie:</label>
+	<input @bind="laundry" type="checkbox">
+	<br/>
+	<label>Sejf:</label>
+	<input @bind="safe" type="checkbox">
+	<br/>
+	<label>Zwiedzanie:</label>
+	<input @bind="sightseeing" type="checkbox">
+	<br/>
+	<label>Kanapa:</label>
+	<input @bind="sofa" type="checkbox">
+	<br/>
+	<label>Toaleta:</label>
+	<input @bind="toilet" type="checkbox">
+	<br/>
+	<label>Telewizor:</label>
+	<input @bind="tv" type="checkbox">
+	<br/>
+	<label>Pralka:</label>
+	<input @bind="washing_mashine" type="checkbox">
+	<br/>
+	<br/>
+	<button class="input-button" onclick="@onSearch">SZUKAJ</button>
+	<br/>
 </div>
 
 @code {
-    private int priceFrom = 0;
-    private int priceTo = 1000000;
-    private int peopleNumber = 2;
-    private int childrenNumber = 0;
-    private int areaFrom = 20;
-    private int areaTo = 70;
-    private int bed_count_1p = 0;
-    private int bed_count_2p = 1;
-    private bool balcony = false;
-    private bool bath = false;
-    private bool coffee = false;
-    private bool desk = false;
-    private bool disabled_accessible = false;
-    private bool fridge = false;
-    private bool iron = false;
-    private bool kids_beds = false;
-    private bool kitchen = false;
-    private bool laundry = false;
-    private bool safe = false;
-    private bool sightseeing = false;
-    private bool sofa = false;
-    private bool tea = false;
-    private bool toilet = false;
-    private bool tv = false;
-    private bool washing_mashine = false;
-    private string variant = "Basic";
-    // private string? startDate = DateTime.Today.ToString("u").Split(' ')[0];
-    // private string? endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month + 1, DateTime.Today.Day).ToString("u").Split(' ')[0];
-    private DateTime startDate = DateTime.Today;
-    private DateTime endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month + 1, DateTime.Today.Day);
+	private int? priceFrom = null;
+	private int? priceTo = null;
+	private int? peopleNumber = null;
+	private int? childrenNumber = null;
+	private int? areaFrom = null;
+	private int? areaTo = null;
+	private int? bed_count_1p = null;
+	private int? bed_count_2p = null;
+	private bool? balcony = null;
+	private bool? bath = null;
+	private bool? coffee = null;
+	private bool? desk = null;
+	private bool? disabled_accessible = null;
+	private bool? fridge = null;
+	private bool? iron = null;
+	private bool? kids_beds = null;
+	private bool? kitchen = null;
+	private bool? laundry = null;
+	private bool? safe = null;
+	private bool? sightseeing = null;
+	private bool? sofa = null;
+	private bool? tea = null;
+	private bool? toilet = null;
+	private bool? tv = null;
+	private bool? washing_mashine = null;
+	private string? variant = null;
+	// private string? startDate = DateTime.Today.ToString("u").Split(' ')[0];
+	// private string? endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month + 1, DateTime.Today.Day).ToString("u").Split(' ')[0];
+	private DateTime? startDate = DateTime.Today;
+	private DateTime? endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month + 1, DateTime.Today.Day);
 
-    private void onSearch()
-    {
-        using (var client = new HttpClient())
-        {
-            var endpoint = new Uri("http://localhost:8080/v1/free");
-            var newPost = new SearchRoomJSON(areaFrom, areaTo, balcony, bath, bed_count_1p, bed_count_1p, bed_count_2p, bed_count_2p, childrenNumber, peopleNumber, peopleNumber, peopleNumber, coffee, startDate.ToString().Split(' ')[0], endDate.ToString().Split(' ')[0], desk, disabled_accessible, fridge, iron, kids_beds, kitchen, laundry, priceFrom, priceTo, safe, sightseeing, sofa, tea, toilet, tv, variant, washing_mashine);
-            var newPostJson = JsonSerializer.Serialize(newPost);
-            var payLoad = new StringContent(newPostJson, Encoding.UTF8, "application/json");
-            var result = client.PostAsync(endpoint, payLoad).Result.Content.ReadAsStringAsync().Result;
-        }
-    }
+	private void onSearch()
+	{
+		using (var client = new HttpClient())
+		{
+			var endpoint = new Uri("http://localhost:8080/v1/free");
+			var newPost = new SearchRoomJSON(areaFrom, areaTo, balcony, bath, bed_count_1p, bed_count_1p, bed_count_2p, bed_count_2p, childrenNumber, peopleNumber, peopleNumber, peopleNumber, coffee, startDate.ToString().Split(' ')[0], endDate.ToString().Split(' ')[0], desk, disabled_accessible, fridge, iron, kids_beds, kitchen, laundry, priceFrom, priceTo, safe, sightseeing, sofa, tea, toilet, tv, variant, washing_mashine);
+			var newPostJson = JsonSerializer.Serialize(newPost);
+			var payLoad = new StringContent(newPostJson, Encoding.UTF8, "application/json");
+			var result = client.PostAsync(endpoint, payLoad).Result.Content.ReadAsStringAsync().Result;
+			Console.WriteLine(result);
+		}
+	}
 
 
 }
