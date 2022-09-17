@@ -1,11 +1,12 @@
 ﻿@page "/room/{id:int}"
 @using ProHotel.Data
+@using Microsoft.VisualBasic
 @inject RoomEntryService RoomEntryService;
 @inject ReservationService ReservationService;
 
 <PageTitle>Room</PageTitle>
 
-<div>
+<div style="margin-bottom: 8%">
 	<div class="row">
 		<div class="room-options-background col-md-3">
 			<div class="img-room">
@@ -41,12 +42,17 @@
 	<div class="row">
 
 	</div>
-</div>
-<button onclick="@OnClick" hidden="@HiddenReserve">Reserve</button>
+	<button class="input-button" onclick="@OnClick" hidden="@HiddenReserve">Rezerwacja</button>
 
-<div hidden="@Hidden">
-<ReservationWindow RoomId="@Id" OnExit="Exit" OnReservation="data => Reservation(data)"/>
+	<div hidden="@Hidden">
+		<ReservationWindow RoomId="@Id" OnExit="Exit" OnReservation="data => Reservation(data)"/>
+	</div>
 </div>
+<DxPopup
+	HeaderText="Efekt rezerwacji"
+	hidden="@PopupVisible"
+	BodyText="@ReservationResult">
+</DxPopup>
 
 @code {
 
@@ -55,29 +61,35 @@
 
 	private Room? _room;
 
-    bool Hidden { get; set; } = true;
-    bool HiddenReserve { get; set; }
+	bool PopupVisible { get; set; } = false;
+	private string ReservationResult = "Rezerwacja nie powiodła się";
 
-    void Exit()
-    {
-        Hidden = true;
-        HiddenReserve = false;
-    }
+	bool Hidden { get; set; } = true;
+	bool HiddenReserve { get; set; }
 
-    void Reservation(bool data)
-    {
-        HiddenReserve = data;
-        Hidden = true;
-    }
+	void Exit()
+	{
+		Hidden = true;
+		HiddenReserve = false;
+	}
 
-    protected override async Task OnInitializedAsync()
-    {
+	void Reservation(bool data)
+	{
+		HiddenReserve = data;
+		Hidden = true;
+		ReservationResult = data ? "Rezerwacja powiodła się" : "Rezerwacja nie powiodła się";
+		PopupVisible = true;
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
 		_room = await RoomEntryService.GetRoom(Id);
 	}
 
-    void OnClick()
-    {
-        Hidden = false;
-        HiddenReserve = true;
-    }
+	void OnClick()
+	{
+		Hidden = false;
+		HiddenReserve = true;
+	}
+
 }
