@@ -1,6 +1,7 @@
 ﻿@page "/room/{id:int}"
 @using ProHotel.Data
 @inject RoomEntryService RoomEntryService;
+@inject ReservationService ReservationService;
 
 <PageTitle>Room</PageTitle>
 
@@ -41,6 +42,9 @@
 
 	</div>
 </div>
+<button onclick="@OnClick">Reserve</button>
+
+<ReservationWindow RoomId="@Id"/>
 
 @code {
 
@@ -54,4 +58,8 @@
 		_room = await RoomEntryService.GetRoom(Id);
 	}
 
+    void OnClick()
+    {
+        ReservationService.GetReservationsAsync(null!);
+    }
 }

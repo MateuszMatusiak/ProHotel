@@ -1,0 +1,68 @@
+﻿@using ProHotel.Data
+@using System.ComponentModel.DataAnnotations
+
+@inject NavigationManager NavigationManager
+@inject ReservationService ReservationService
+
+<div>
+    <EditForm Model="@reservationModel" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+
+        <input @bind="startDate" type="date" class="input-date">
+        <input @bind="endDate" type="date" class="input-date">
+
+        <InputText id="name" @bind-Value="reservationModel.Name"/>
+        <InputText id="surname" @bind-Value="reservationModel.Surname"/>
+        <InputNumber id="telephone" @bind-Value="reservationModel.Telephone"/>
+
+        <button onclick="@Exit">Rezygnuję</button>
+        <button type="submit" onclick="@Reserve">Rezerwuję</button>
+    </EditForm>
+</div>
+
+@code {
+    private void HandleValidSubmit()
+    {
+        
+    }
+
+    ReservationModel reservationModel = new(); 
+    private DateTime? startDate = DateTime.Today;
+    private DateTime? endDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month + 1, DateTime.Today.Day);
+
+    [Parameter]
+    public EventCallback OnExit { get; set; }
+
+    [Parameter]
+    public EventCallback OnReservation { get; set; }
+
+    [Parameter]
+    public int RoomId { get; set; }
+    
+    void Exit()
+    {
+        OnExit.InvokeAsync();
+    }
+
+    void Reserve()
+    {
+        ReservationService.ReservationData data = ReservationService.ReservationData.Empty;
+        data.from = startDate.ToString();
+        data.to = endDate.ToString();
+        data.room_id = RoomId;
+        data.client_id.client_id = (int)reservationModel.Telephone;
+        data.client_id.name = reservationModel.Name;
+        data.client_id.surname = reservationModel.Surname;
+        data.client_id.telephone = reservationModel.Telephone;
+        ReservationService.GetReservationsAsync(data);
+        OnReservation.InvokeAsync();
+    }
+    
+    public class ReservationModel
+    {
+        [Required] public string Name { get; set; }
+        [Required] public string Surname { get; set; }
+        [Required, Range(100000000, 999999999)] public double Telephone { get; set; }
+    }
+}
