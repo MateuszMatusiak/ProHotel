@@ -1,6 +1,5 @@
 ﻿@page "/room/{id:int}"
 @using ProHotel.Data
-@using Microsoft.VisualBasic
 @inject RoomEntryService RoomEntryService;
 @inject ReservationService ReservationService;
 
@@ -78,7 +77,6 @@
 		HiddenReserve = data;
 		Hidden = true;
 		ReservationResult = data ? "Rezerwacja powiodła się" : "Rezerwacja nie powiodła się";
-		PopupVisible = true;
 	}
 
 	protected override async Task OnInitializedAsync()
