@@ -42,9 +42,11 @@
 
 	</div>
 </div>
-<button onclick="@OnClick">Reserve</button>
+<button onclick="@OnClick" hidden="@HiddenReserve">Reserve</button>
 
-<ReservationWindow RoomId="@Id"/>
+<div hidden="@Hidden">
+<ReservationWindow RoomId="@Id" OnExit="Exit" OnReservation="data => Reservation(data)"/>
+</div>
 
 @code {
 
@@ -53,13 +55,29 @@
 
 	private Room? _room;
 
-	protected override async Task OnInitializedAsync()
-	{
+    bool Hidden { get; set; } = true;
+    bool HiddenReserve { get; set; }
+
+    void Exit()
+    {
+        Hidden = true;
+        HiddenReserve = false;
+    }
+
+    void Reservation(bool data)
+    {
+        HiddenReserve = data;
+        Hidden = true;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
 		_room = await RoomEntryService.GetRoom(Id);
 	}
 
     void OnClick()
     {
-        ReservationService.GetReservationsAsync(null!);
+        Hidden = false;
+        HiddenReserve = true;
     }
 }

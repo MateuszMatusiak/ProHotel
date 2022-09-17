@@ -14,8 +14,7 @@ public class ReservationService
         var jsonData = JsonSerializer.Serialize(data);
         var payLoad = new StringContent(jsonData, Encoding.UTF8, "application/json");
         var json = client.PutAsync($"{Url}{data.room_id})", payLoad).Result.Content.ReadAsStringAsync().Result;
-
-        return Task.FromResult(json == "OK");
+        return Task.FromResult(json == "\"OK\"\n");
     }
     
     public class ClientId
