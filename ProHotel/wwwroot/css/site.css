@@ -146,6 +146,7 @@ ul {
     margin-bottom: 1%;
     margin-right: 1%;
     width: 80%;
+    cursor: pointer;
 }
 
 .input-date {
@@ -155,6 +156,7 @@ ul {
     margin-top: 1%;
     margin-bottom: 1%;
     margin-right: 1%;
+    cursor: pointer;
 }
 
 .input-number {
@@ -163,6 +165,7 @@ ul {
     background-color: #292929;
     width: 35%;
     margin-right: 1%;
+    cursor: pointer;
 }
 
 .input-button {
@@ -171,6 +174,11 @@ ul {
     background-color: #808080;
     margin-left: 3%;
     width: 45%;
+    cursor: pointer;
+}
+
+.input-checkbox {
+    cursor: pointer;
 }
 
 .search-result {
@@ -203,7 +211,7 @@ ul {
     margin: 1%;
 }
 
-.room-options-background{
+.room-options-background {
     background-color: #ffa31a;
     border-radius: 2%;
     margin: 3%;

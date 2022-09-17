@@ -2,48 +2,40 @@
 @inject RoomEntryService RoomEntryService
 @inject NavigationManager NavigationManager
 
-<div class="container main_table" style="cursor: pointer;" onclick="@LoadRoom">
+<div class="container main_table" style="cursor: pointer; background-color: #808080" onclick="@LoadRoom">
 	<div class="row align-items-center">
-		<div class="col-md-5 room_image">
+		<div class="col-md-4 room_image">
 			<img src="data:image/png;base64,@room.ImageUrl" class="img-fluid" alt="Room image not found">
 		</div>
-		<div class="col-md-6">
-			<div class="row room-title">Pokój numer @room.RoomNumber</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="row small_info">
-						<div class="row">
-							@if (@room.Addons.Count > 0)
-							{
-								<div class="col-md-6 small-info-element">
-									<div class="addons-list">
-										@foreach (var entry in @room.Addons)
-										{
-											<li >
-												•@entry
-											</li>
-										}
-									</div>
-								</div>
-							}
-							<div class="col-md-6 small-info-element">
-								<div class="col">•@room.Space㎡</div>
-								@* <div class="col">Śniadanie w cenie: @room.Breakfast</div> *@
-							</div>
-						</div>
-						<div class="row">•@room.Beds łóżka (@room.Beds1Person pojedyncze, @room.Beds2Person podwójne)</div>
-						@if (@room.BedsChildren > 0)
+		<div class="col-md-3">
+			<b class="room-title">Pokój numer @room.RoomNumber</b>
+			<p class="room-title">Wariant @room.Variant</p>
+			<p class="room-title">@room.PricePerDay zł/doba</p>
+			<p class="room-title">Powierzchnia: @room.Space m<sup>2</sup></p>
+
+		</div>
+		<div class="col-md-3">
+			<div class="small_info">
+				<div>
+					@if (@room.Addons.Count > 0)
+					{
+						int i = 0;
+						@foreach (var entry in @room.Addons)
 						{
-							<div class="row">•@room.BedsChildren łóżka dla dzieci</div>
+							<li>@entry</li>
+							i++;
+							if (i == 5)
+							{
+								break;
+							}
 						}
-					</div>
+					}
 				</div>
-				<div class="col-md-6">
-					<div class="col room-variant">
-						<div class="row">Wariant @room.Variant</div>
-						<div class="row">@room.PricePerDay zł/doba</div>
-					</div>
-				</div>
+				<li>@room.Beds łóżka (@room.Beds1Person pojedyncze, @room.Beds2Person podwójne)</li>
+				@if (@room.BedsChildren > 0)
+				{
+					<li>@room.BedsChildren łóżka dla dzieci</li>
+				}
 			</div>
 		</div>
 	</div>
