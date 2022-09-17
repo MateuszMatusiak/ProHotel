@@ -13,6 +13,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddSingleton<OptionEntryService>();
 builder.Services.AddSingleton<RoomEntryService>();
+builder.Services.AddSingleton<ReservationService>();
 
 var app = builder.Build();
 

@@ -37,8 +37,8 @@ public class Addons
 	public bool? washing_mashine { get; set; } = false;
 
 	public List<string> GetAddons()
-	{
-		var props = GetType().GetProperties();
+    {
+        var props = GetType().GetProperties();
 		var addons = new List<string>();
 		foreach (var prop in props)
 		{
