@@ -39,6 +39,7 @@ public class RoomEntryService
 		{
 			res[i] = new Room(roomsJson[i]);
 			res[i].PricePerDay *= (100.0f + actualDiscount) / 100.0f;
+			res[i].PricePerDay = (float) Math.Round(res[i].PricePerDay, 2);
 		}
 
 		return Task.FromResult(res);
@@ -48,7 +49,10 @@ public class RoomEntryService
 	{
 		string json = new HttpClient().GetStringAsync($"{Url}({id})").Result;
 		var roomsJson = JsonSerializer.Deserialize<RoomJson>(json) ?? new RoomJson();
-		return Task.FromResult(new Room(roomsJson));
+		var res = new Room(roomsJson);
+		res.PricePerDay *= (100.0f + actualDiscount) / 100.0f;
+		res.PricePerDay = (float) Math.Round(res.PricePerDay, 2);
+		return Task.FromResult(res);
 	}
 
 	public Task<Room[]> GetRooms(SearchRoomJSON searchRoomJson)
@@ -71,6 +75,7 @@ public class RoomEntryService
 		{
 			res[i] = new Room(roomsJson[i]);
 			res[i].PricePerDay *= (100.0f + actualDiscount) / 100.0f;
+			res[i].PricePerDay = (float) Math.Round(res[i].PricePerDay, 2);
 		}
 
 		return Task.FromResult(res);

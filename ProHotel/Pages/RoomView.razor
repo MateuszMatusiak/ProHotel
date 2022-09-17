@@ -7,34 +7,41 @@
 
 <div style="margin-bottom: 8%">
 	<div class="row">
-		<div class="room-options-background col-md-3">
-			<div class="img-room">
-				<img src="data:image/png;base64,@_room.ImageUrl" class="img-fluid" alt="Room image not found">
+		<div class="room-options-background col-md-6">
+			<div class="gallery">
+				@for (int i = 0; i < _room.ImageUrl.Count; i++)
+				{
+					<div class="column" style="margin: 1%">
+						<img src="data:image/png;base64,@_room.ImageUrl[i]" class="img-fluid" onclick="@onImageChange" alt="Room image not found">
+					</div>
+				}
 			</div>
 		</div>
-		<div class="room-options-background col-md-3">
-			<div class="room-options">
-				<h2 style="text-align: center">Cena za dzień: @_room.PricePerDay pln</h2>
-				<li>Powierzchnia: @_room.Space m<sup>2</sup></li>
-				<p>Wariant: @_room.Variant</p>
-				<li>Ilość łóżek dla dorosłych: @_room.Beds</li>
-				<li class="OptionEntryList">w tym:</li>
-				<text>&emsp;Łóżka jednoosobowe: @_room.Beds1Person</text>
-				<p>&emsp;Łóżka dwuosobowe: @_room.Beds2Person</p>
-				<li>Łóżka dziecięce: @_room.BedsChildren</li>
+		<div class="col-md-4" style="margin-left: 2%">
+			<div class="room-options-background row">
+				<div class="room-options">
+					<h2>Cena za dzień: @_room.PricePerDay pln</h2>
+					<li>Powierzchnia: @_room.Space m<sup>2</sup></li>
+					<p>Wariant: @_room.Variant</p>
+					<li>Ilość łóżek dla dorosłych: @_room.Beds</li>
+					<li class="OptionEntryList">w tym:</li>
+					<text>&emsp;Łóżka jednoosobowe: @_room.Beds1Person</text>
+					<p>&emsp;Łóżka dwuosobowe: @_room.Beds2Person</p>
+					<li>Łóżka dziecięce: @_room.BedsChildren</li>
+				</div>
 			</div>
-		</div>
-		<div class="room-options-background col-md-3">
-			<div class="room-options">
-				<h2 style="text-align: center">Wyposażenie pokoju: </h2>
-				<ul class="search-result-list">
-					@foreach (var addon in _room.Addons)
-					{
-						<li>
-							@addon
-						</li>
-					}
-				</ul>
+			<div class="room-options-background row">
+				<div class="room-options">
+					<h2>Wyposażenie pokoju: </h2>
+					<ul class="search-result-list">
+						@foreach (var addon in _room.Addons)
+						{
+							<li>
+								@addon
+							</li>
+						}
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -88,6 +95,10 @@
 	{
 		Hidden = false;
 		HiddenReserve = true;
+	}
+
+	void onImageChange()
+	{
 	}
 
 }

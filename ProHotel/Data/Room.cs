@@ -2,7 +2,7 @@
 
 public class Room
 {
-	public string ImageUrl { get; set; }
+	public List<string> ImageUrl { get; set; }
 	public string RoomNumber { get; set; }
 	public float Space { get; set; }
 	public int Beds1Person { get; set; }
@@ -15,9 +15,16 @@ public class Room
 
 	public Room(RoomJson roomJson)
 	{
-		if(roomJson == null) return;
+		if (roomJson == null) return;
 
-		ImageUrl = roomJson.images?[0].image_content ?? "";
+		ImageUrl = new List<string>();
+		for (int i = 0; i < roomJson.images?.Length; i++)
+		{
+			if (roomJson.images[i].image_content == null)
+				continue;
+			ImageUrl.Add(roomJson.images[i].image_content);
+		}
+
 		RoomNumber = roomJson.room_number?.ToString() ?? "";
 		Space = roomJson.area ?? 0;
 		Beds1Person = roomJson.bed_count_1p ?? 0;
