@@ -1,18 +1,32 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
 
 <PageTitle>ProHotel</PageTitle>
 
 <div class="page">
-    <div class="App">
-        <div>
-            <div class="logo-bar">
-                <img src="images/logo.png" class="col-md-2" alt="logo"/>
-                <img src="images/flag.png" class="col-md-1 offset-8 flag" alt="flag"/>
-            </div>
-        </div>
-        <article class="content">
-            <img class="col-md-12 background-image" src="images/background.jpg" alt="background"/>
-            @Body
-        </article>
-    </div>
+	<div class="App">
+		<div>
+			<div class="logo-bar">
+				<img src="images/logo.png" class="col-md-2" onclick="@onLogo" alt="logo" style="cursor: pointer;"/>
+				<img src="images/flag.png" class="col-md-1 offset-8 flag" alt="flag"/>
+			</div>
+		</div>
+		<article class="content">
+			<img class="col-md-12 background-image" src="images/background.jpg" alt="background"/>
+			@Body
+		</article>
+	</div>
 </div>
+
+@code
+{
+	void onLogo()
+	{
+		NavigationOptions options = new()
+		{
+			ForceLoad = true
+		};
+
+		NavigationManager.NavigateTo($"/", options);
+	}
+}
