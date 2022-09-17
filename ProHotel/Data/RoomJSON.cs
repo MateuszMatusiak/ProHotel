@@ -40,14 +40,35 @@ public class Addons
 	{
 		var props = GetType().GetProperties();
 		var addons = new List<string>();
-		foreach(var prop in props)
+		foreach (var prop in props)
 		{
-			bool value = (bool)prop.GetValue(this)!;
-			if(value == false)
+			bool value = (bool) prop.GetValue(this)!;
+			if (value == false)
 				continue;
 			string name = prop.Name;
+			name = name switch
+			{
+				"balcony" => "Balkon",
+				"bath" => "Łazienka",
+				"coffee" => "Kawa",
+				"desk" => "Gabinet",
+				"disabled_accessible" => "Ułatwienia dla niepełnosprawnych",
+				"fridge" => "Lodówka",
+				"kids_beds" => "Łóżeczka dla dzieci",
+				"kitchen" => "Kuchnia",
+				"laundry" => "Pralnia",
+				"safe" => "Sejf",
+				"sightseeing" => "Zwiedzanie",
+				"sofa" => "Sofa",
+				"tea" => "Herbata",
+				"toilet" => "Toaleta",
+				"tv" => "Telewizor",
+				"washing_mashine" => "Pralka",
+				_ => name
+			};
 			addons.Add(name);
 		}
+
 		return addons;
 	}
 }
