@@ -6,27 +6,16 @@ namespace ProHotel.Data;
 
 public class ReservationService
 {
-    const string Url = "http://localhost:8080/v1/reserve(1)";
+    const string Url = "http://localhost:8080/v1/reserve(";
     HttpClient client = new();
     
-    public Task<Reservation> GetReservationsAsync(ReservationData data)
+    public Task<bool> GetReservationsAsync(ReservationData data)
     {
-        Console.WriteLine("GetReservationsAsync");
         var jsonData = JsonSerializer.Serialize(data);
-        Console.WriteLine(jsonData);
         var payLoad = new StringContent(jsonData, Encoding.UTF8, "application/json");
-        Console.WriteLine(payLoad);
-        var json = client.PostAsync(Url, payLoad).Result.Content.ReadAsStringAsync().Result;
-        
-        Console.WriteLine(json);
-        var reservation = JsonSerializer.Deserialize<Reservation>(json);
-        
-        return Task.FromResult(reservation ?? new Reservation());
-    }
-    
-    public record Reservation
-    {
-        
+        var json = client.PutAsync($"{Url}{data.room_id})", payLoad).Result.Content.ReadAsStringAsync().Result;
+
+        return Task.FromResult(json == "OK");
     }
     
     public class ClientId
